@@ -1,0 +1,693 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: serif;
+  }
+html{
+  --primary-050:  #384b8c;
+  --secondary-050: #D7F4FC;
+  --base-bg: #E8E8E8;
+  --text-color: #242424;
+}
+
+.menu-btn {
+    position: fixed;
+    top: 20px;
+    right: 10px;
+    display: flex;
+    height: 40px;
+    width: 40px;
+    justify-content: center;
+    align-items: center;
+    z-index: 90;
+    background-color: var(--primary-050);
+    border-radius: 10%;
+}
+.menu-btn span,
+.menu-btn span:before,
+.menu-btn span:after {
+    content: '';
+    display: block;
+    height: 3px;
+    width: 25px;
+    border-radius: 3px;
+    background-color: #ffffff;
+    position: absolute;
+}
+.menu-btn span:before {
+    bottom: 8px;
+}
+.menu-btn span:after {
+    top: 8px;
+}
+
+#menu-btn-check:checked ~ .menu-btn span {
+    background-color: rgba(255, 255, 255, 0);/*メニューオープン時は真ん中の線を透明にする*/
+}
+#menu-btn-check:checked ~ .menu-btn span::before {
+    bottom: 0;
+    transform: rotate(45deg);
+}
+#menu-btn-check:checked ~ .menu-btn span::after {
+    top: 0;
+    transform: rotate(-45deg);
+}
+
+#menu-btn-check {
+    display: none;
+}
+
+.menu-content {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 80;
+    background-color: var(--primary-050);
+}
+.menu-contact img{
+   left: 0;
+}
+
+.menu-content ul {
+    padding: 10px 10px 0;
+}
+.menu-content ul li {
+   color: #ffffff;
+    text-align: left;
+    list-style: none;
+    margin-top: 100px;
+    margin-bottom: 100px;
+}
+.menu-content ul li a {
+    display: block;
+    width: 100%;
+
+    box-sizing: border-box;
+    color:#ffffff;
+    font-size: 1.5em;
+    text-decoration: underline;
+    padding-top: 10px;
+    padding-bottom: 10px; 
+    position: relative;
+}
+.menu-content {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 100%;/*leftの値を変更してメニューを画面外へ*/
+    z-index: 80;
+    background: linear-gradient(to bottom, rgba(0, 20, 100, 0.7), rgba(0, 0, 0, 0.7));
+    transition: all 0.5s;/*アニメーション設定*/
+}
+#menu-btn-check:checked ~ .menu-content {
+    left: 85%;/*メニューを画面内へ*/
+}
+
+/*title*/
+
+#title{
+    height: 1300px;
+    background: linear-gradient(to top,rgb(7, 52, 76),20%, rgba(189, 239, 254, 0.7),30%, rgb(2, 18, 52));
+}
+
+.titletext{
+    font-size: 5.0em;
+    font-weight: 300;
+    color: #ffffff;
+    text-align: center;
+    padding-top: 300px;
+}
+
+.titlesub{
+    font-size: 1.5em;
+    text-align: center;
+    color: #fff;
+    margin-top: 300px;
+}
+
+
+
+#illustrator{
+    height: 1800px;
+    background: linear-gradient(to top,rgb(1, 1, 40),rgb(7, 52, 76));
+}
+
+.illustrator-titlebox{
+    width: 400px;
+    height: 250px;
+    background: linear-gradient(to top, rgba(166, 193, 205, 0.5), rgba(7, 52, 76, 0));
+    font-size: 2.5em;
+    color: #ffffff;
+    position: absolute;
+    padding-top: 100px;
+    text-align: center;
+    margin: 0 auto;
+    z-index: 10;
+    left: 0;
+    right: 0;
+
+    animation-name: frontbubble;
+    animation-duration: 7.0s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+
+}
+
+.illustrator-back{
+    width: 420px;
+    height: 270px;
+    background-color: rgba(47, 106, 146, 0.4);
+    margin: 0 auto;
+    position: relative;
+    left: 0;
+    right: 0;
+    top: -10px;
+    z-index: 5;
+
+    animation-name: backbubble;
+    animation-duration: 10.0s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+@keyframes frontbubble{  
+    0%{
+        border-radius: 50% 50% 50% 50% / 50% 50% 50% 50% ;
+    }
+    25%{
+        border-radius: 60% 40% 60% 40% / 40% 60% 40% 60% ;
+    }
+    50%{
+        border-radius: 70% 30% 70% 30% / 30% 70% 30% 70% ;
+    }
+    75%{
+        border-radius: 60% 40% 60% 40% / 40% 60% 40% 60% ;
+    }
+    100%{
+        border-radius: 50% 50% 50% 50% / 50% 50% 50% 50% ;
+    }
+}
+
+@keyframes backbubble{  
+    0%{
+        border-radius: 50% 50% 50% 50% / 50% 50% 50% 50% ;
+    }
+    25%{
+        border-radius: 40% 60% 40% 60% / 60% 40% 60% 40% ;
+    }
+    50%{
+        border-radius: 30% 70% 30% 70% / 70% 30% 70% 30% ;
+    }
+    75%{
+        border-radius: 40% 60% 40% 60% / 60% 40% 60% 40% ;
+    }
+    100%{
+        border-radius: 50% 50% 50% 50% / 50% 50% 50% 50% ;
+    }
+}
+
+.illustratorcontents-1{
+    height: 600px;
+    margin-top: 100px;
+    margin-left: 50px;
+    margin-right: 50px;
+    position: relative;
+    z-index: 5;
+}
+
+.contents-1{
+    width: 550px;
+    height: 350px;
+    border-radius:25% 75% 25% 75% / 70% 30% 70% 30% ;
+}
+
+.contents-1-text{
+    width: 350px;
+    height: 350px;
+    position: absolute;
+    right: 80px;
+    top: 130px;
+    padding-top: 40px;
+    text-align: center;
+    color: #fff;
+    background: rgba(25, 83, 135, 0.5);
+    font-size: 1.3em;
+    z-index: 10;
+
+    animation-name: frontbubble;
+    animation-duration: 9.0s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+.contents1-back1{
+    width: 370px;
+    height: 370px;
+    position: absolute;
+    right: 80px;
+    top: 130px;
+
+    background: rgba(198, 169, 38, 0.5);
+
+    animation-name: backbubble;
+    animation-duration: 11.0s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+.contents1-back2{
+    width: 580px;
+    height: 500px;
+    position: absolute;
+    left: -10px;
+    top: -50px;
+    z-index: -5;
+
+    background: rgba(150, 94, 167, 0.5);
+
+    animation-name: backbubble;
+    animation-duration: 10.0s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+.illustratorcontents-2{
+    height: 600px;
+    margin-top: 100px;
+    margin-left: 50px;
+    margin-right: 50px;
+    position: relative;
+    z-index: 5;
+}
+
+.contents-2{
+    width: 550px;
+    height: 350px;
+    border-radius:10% 90% 10% 90% / 90% 10% 90% 10% ;
+    position: absolute;
+    right: 100px;
+}
+
+.contents2-back1{
+    width: 600px;
+    height: 530px;
+    position: absolute;
+    right: 80px;
+    top: -90px;
+    z-index: -5;
+
+    background: rgba(150, 94, 167, 0.5);
+
+    animation-name: backbubble;
+    animation-duration: 10.0s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+.contents2-back2{
+    width: 370px;
+    height: 370px;
+    position: absolute;
+    left: 60px;
+    top: 50px;
+    z-index: -5;
+
+    background: rgba(198, 169, 38, 0.5);
+
+    animation-name: backbubble;
+    animation-duration: 13.0s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+
+.contents-2-text{
+    width: 350px;
+    height: 350px;
+    position: absolute;
+    left: 80px;
+    top: 60px;
+    padding-top: 40px;
+    text-align: center;
+    color: #fff;
+    background: rgba(25, 83, 135, 0.5);
+    font-size: 1.3em;
+    z-index: 10;
+
+    animation-name: frontbubble;
+    animation-duration: 9.0s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+
+
+
+
+
+
+
+#maya{
+    height: 2500px;
+    background: linear-gradient(to top,rgb(36, 16, 37),rgb(1, 1, 40));
+    position: relative;
+}
+
+.maya-titlebox{
+    width: 400px;
+    height: 200px;
+    background: linear-gradient(to top, rgba(166, 193, 205, 0.5), rgba(1, 1, 40, 0));
+    font-size: 2.5em;
+    color: #ffffff;
+    position: absolute;
+    padding-top: 70px;
+    text-align: center;
+    margin: 0 auto;
+    z-index: 10;
+    left: 0;
+    right: 0;
+
+    animation-name: frontbubble;
+    animation-duration: 7.0s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+
+}
+
+.maya-back{
+    width: 430px;
+    height: 200px;
+    background-color: rgba(47, 106, 146, 0.4);
+    margin: 0 auto;
+    position: relative;
+    left: 0;
+    right: 0;
+    z-index: 5;
+    
+    
+    animation-name: backbubble;
+    animation-duration: 10.0s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+.mayacontents-1{
+    height:1000px;
+    margin-top: 100px;
+    margin-bottom: 200px;
+}
+
+.contents-3{
+    width: 430px;
+    height: 300px;
+    position: relative;
+    top: 100px;
+    left: 150px;
+    z-index: 10;
+    border-radius: 5% 95% 5% 95% / 95% 5% 95% 5% 
+}
+
+.contents-4{
+    width: 430px;
+    height: 300px;
+    position: relative;
+    top: 500px;
+    right: 200px;
+    z-index: 10;
+    border-radius: 5% 95% 5% 95% / 95% 5% 95% 5% 
+}
+
+
+.maya1-contents-text{
+    width: 360px;
+    height: 720px;
+    color: #fff;
+    position: absolute;
+    right: 150px;
+    top: 450px;
+
+    text-align: center;
+    font-size: 1.3em;
+    z-index: 10;
+}
+
+ul{
+    position: relative;
+    left: 0;
+    right: 0;
+}
+
+.maya-li{
+    list-style:none;
+    float:right;
+    margin-left: 60px;
+    position: relative;
+    left: -150px;
+    z-index: 10;
+}
+
+.maya3-contents-title{
+    width: 300px;
+    color: #fff;
+    font-size: 2.0em;
+    position: relative;
+    top: 150px;
+    left: 50px;
+    z-index: 10;
+}
+
+.mayacontents-3{
+    height: 1000px;
+}
+
+
+
+
+
+.contents-5{
+    width: 300px;
+    height: 280px;
+    border-radius:10% 90% 10% 90% / 90% 10% 90% 10% ;
+}
+
+.maya5-back{
+    width: 400px;
+    height: 400px;
+    background-color: rgba(150, 94, 167, 0.5);
+    animation-name: frontbubble;
+    animation-duration: 10.0s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+
+    position: relative;
+    top: -50px;
+    left: 220px;
+}
+
+.contents-6{
+    width: 300px;
+    height: 280px;
+    border-radius:90% 10% 90% 10% / 10% 90% 10% 90% ;
+}
+
+.maya6-back{
+    width: 400px;
+    height: 400px;
+    background-color: rgba(47, 106, 146, 0.4);
+    animation-name: backbubble;
+    animation-duration: 11.0s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+
+    position: relative;
+    top: -450px;
+    left: 580px;
+}
+
+.contents-7{
+    width: 300px;
+    height: 280px;
+    border-radius:10% 90% 10% 90% / 90% 10% 90% 10% ;
+}
+
+.maya7-back{
+    width: 400px;
+    height: 400px;
+    background-color: rgba(150, 94, 167, 0.5);
+    animation-name: frontbubble;
+    animation-duration: 9.0s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+
+    position: relative;
+    top: -860px;
+    left: 950px;
+}
+
+.mayacontents-back{
+    width: 600px;
+    height: 500px;
+    background-color: rgba(47, 106, 146, 0.4);
+    animation-name: frontbubble;
+    animation-duration: 9.0s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+
+    position: relative;
+    top: -300px;
+    left: 80px;
+}
+
+.mayacontents-back2{
+    width: 600px;
+    height: 500px;
+    background-color: rgba(150, 94, 167, 0.5);
+    animation-name: frontbubble;
+    animation-duration: 9.0s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+
+    position: relative;
+    top: -400px;
+    left: 150px;
+    z-index: 3;
+}
+
+.mayacontents-back3{
+    width: 500px;
+    height: 700px;
+    background-color: rgba(198, 169, 38, 0.5);
+    animation-name: backbubble;
+    animation-duration: 9.0s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+
+    position: relative;
+    top: -1250px;
+    left: 850px;
+}
+
+.mayacontents-back4{
+    width: 520px;
+    height: 700px;
+    background-color: rgba(47, 106, 146, 0.4);
+    animation-name: frontbubble;
+    animation-duration: 9.0s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+
+    position: relative;
+    top: -2000px;
+    left: 850px;
+}
+
+.mayacontents-back5{
+    width: 800px;
+    height: 800px;
+    background-color: rgba(140, 47, 146, 0.1);
+    animation-name: backbubble;
+    animation-duration: 9.0s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+
+    position: relative;
+    top: -1600px;
+    left: -250px;
+}
+
+
+
+.maya2-contents-text{
+    width: 800px;
+    height: 350px;
+    color: #fff;
+    position: absolute;
+    bottom: 200px;
+    right: 500px;
+    text-align: center;
+    font-size: 1.4em;
+    padding-top: 50px;
+
+    background-color: rgba(158, 152, 40, 0.396);
+    animation-name: frontbubble;
+    animation-duration: 10.0s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    z-index: 10;
+
+}
+
+.mayacontents-back6{
+    width: 800px;
+    height: 350px;
+    background-color: rgba(47, 83, 146, 0.395);
+    animation-name: backbubble;
+    animation-duration: 11.0s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+
+    position: relative;
+    top: -1600px;
+    right: -130px;
+}
+
+
+
+.maya-under{
+    width: 100%;
+    height: 400px;
+    position: absolute;
+    bottom: 0;
+    background-color: rgba(7, 67, 39, 0.701);
+    clip-path: polygon(37% 65%, 56% 60%, 72% 71%, 86% 41%, 100% 54%, 100% 100%, 0 100%, 0 75%, 14% 47%);
+    z-index: 10;
+}  
+
+
+#info{
+    height: 300px;
+    background-color: #000000;
+}
+
+.info-box{
+    width: 1300px;
+    height: 300px;
+    background: linear-gradient(to top, rgb(0, 0, 0),10%, rgb(255, 255, 255));
+    margin: 0 auto;
+    position: relative;
+    top: -60px;
+    z-index: 20;
+
+    clip-path: polygon(10% 0, 90% 0, 100% 10%, 100% 90%, 90% 100%, 10% 100%, 0 90%, 0 10%);
+}
+
+
+.pro-img{
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    position: relative;
+    left: 170px;
+    top: 50px;
+    border-radius:30%;
+    object-position: 80% 80%;
+}
+
+.info-text{
+    font-size: 1.4em;
+    position: relative;
+    top: -150px;
+    left: 400px;
+}
+
+.footer{
+    background-color: rgb(0, 0, 0);
+    color: #fff;
+    z-index: 10;
+}  
+    
